@@ -16,9 +16,29 @@ class AreaController extends Controller
     public function index(){
         // $areas = DB::table('tblarea')
         // ->where('Activo', 1)->get();
-        $sql = "call GetAreas ()";
-        $areas = DB::select($sql,array(1,100));
-        return view('Admin.Areas.index', compact('areas'));
+        if(Self::validarSiUsuarioActivo()){
+                $sql = "call GetAreas ()";
+                $areas = DB::select($sql,array(1,100));
+                return view('Admin.Areas.index', compact('areas'));
+        } else{
+            return Redirect::to('/login2');
+        }
+    }
+
+    public function validarSiUsuarioActivo(){
+        $info;
+        if(session()->has('UserData')){
+            $info = DB::table('tblusuario')
+            ->where('Usuario',session('UserData')[0]['Usuario'])
+            ->first();
+            if($info == null){
+                return false;
+            }else{
+                return true;
+            }
+        } else{
+            return false;
+        }
     }
 
     public function create(){

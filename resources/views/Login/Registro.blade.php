@@ -22,26 +22,24 @@
             <div class="login-box animated fadeInDown">
                 {{-- <div>
                         <strong>Road To Full Stack Developer</strong>
-                        
                 </div> --}}
-                <!-- <div class="login-logo"><strong>Road To Full Stack Developer</strong></div> -->
-                
-
+                <div class="login-logo"><strong>Road To Full Stack Developer</strong></div>
                 <div class="login-body">
-                <div class="form-group">
+                    <div class="login-title"><strong>Bienvenido</strong>, Registrarse</div>                    
+                    <!--form action="index.html" class="form-horizontal" method="post"-->
+                    <form class="form-horizontal" method="post" action="/registrar-usuario">
+                    @csrf
+                    
+
+                    <div class="form-group">
                         <div class="col-md-12">
-                        <img style="max-width: 300px; max-height: 300px" src="{{asset('assets/images/cerebro.png')}}" alt="John Doe"/>
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre"/>
                         </div>
                     </div>
 
-                    <div class="login-title"><strong>Bienvenido</strong>, Inicia Sesión</div>                    
-                    <!--form action="index.html" class="form-horizontal" method="post"-->
-                    <form class="form-horizontal" method="post" action="/verificar-usuario">
-                    @csrf
-                    
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="user" placeholder="Usuario"/>
+                            <input type="text" class="form-control" name="usuario" placeholder="Usuario"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,20 +47,21 @@
                             <input type="password" name="pass"  class="form-control" placeholder="Contraseña"/>
                         </div>
                     </div>
-
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="col-md-12">
-                            <!-- <input type="password" name="pass"  class="form-control" placeholder="Contraseña"/> -->
+                            <input type="password" name="confirmpass"  class="form-control" placeholder="Confirmar Contraseña"/>
                         </div>
-                    </div>    
-
+                    </div> -->
+                    
                     <div class="form-group">
-                        
-                        <div class="col-md-12">
-                            <button class="btn btn-info btn-block">Entrar</button>
+                        <div class="col-md-6">
+                            <p class="text-center" style="color:gray;">¿Tienes una cuenta? <a href="/" style="color:white;">Ingresa</a> </p>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info btn-block">Crear</button>
                         </div>
                     </div>
-                    {!! $errors->first('errors','<span style="color:red;">Ocurrió un error al registrarse. Inténtelo de nuevo</span>')!!}
+                    {!! $errors->first('errors','<span style="color:red;">Rellene todos los campos</span>')!!}
                     </form>
                 </div>
                 <div class="login-footer">
@@ -72,7 +71,7 @@
                     <div class="pull-right">
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="/registrarse">{{ __('Registrarse') }}</a>
+                            
                             </li>
                             @endif
                         {{-- <a href="#">About</a> |

@@ -39,7 +39,7 @@ Route::get('/login2','LoginController@index');
 Route::get('/administrador','Admin\LoginController@index');
 Route::get('/administrador/home','Admin\HomeController@index');
 
-
+//Areas
 Route::get('/administrador/areas','Admin\AreaController@index');
 Route::get('/administrador/areas/create','Admin\AreaController@create');
 Route::post('/administrador/areas/agregarArea','Admin\AreaController@registrarArea');
@@ -47,8 +47,11 @@ Route::get('/administrador/areas/edit-{id}','Admin\AreaController@edit');
 Route::post('/administrador/areas/actualizarArea-{id}','Admin\AreaController@actualizarArea');
 Route::get('/administrador/areas/delete-{id}','Admin\AreaController@delete');
 
-Route::get('/administrador/areas-{id}/temas','Admin\TemaController@index');
-Route::get('/administrador/areas/temas/create','Admin\TemaController@create');
+//Temas
+Route::get('/administrador/areas-{id}/temas','Admin\TemaController@index');//Ver temas del curso
+// Route::get('/administrador/areas/temas','Admin\TemaController@index');
+Route::get('/administrador/areas-{id}/temasnuevo','Admin\TemaController@create');//Nuevo tema llevando el IdArea
+Route::post('/administrador/areas/temas/agregarTema-{id}','Admin\TemaController@agregarTemas'); //agregar tema
 
 
 Route::get('/administrador/cursos','Admin\CursoController@index');

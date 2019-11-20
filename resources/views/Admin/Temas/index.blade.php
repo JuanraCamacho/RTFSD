@@ -11,41 +11,45 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">                                
                                 <h3 class="panel-title">TEMAS</h3>
-                                <a href="/administrador/cursos/create"><button class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Nuevo curso</button></a>                             
+                                <a href="/administrador/areas-{{$IdArea2}}/temasnuevo"><button class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Nuevo Tema</button></a>                             
                             </div>
                             <div class="panel-body">
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Curso</th>                                            
+                                            <th>Tema</th>                                            
                                             <th>Recursos</th>                                            
+                                            <th>Cursos</th>                                            
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                                    
+                                        @foreach($temas as $item)
                                         <tr>
-                                            <td class="tdShort">1</td>
-                                            <td>Abstracción</td>   
-                                            <td>                                                
-                                                <a href="#">
-                                                <button class="btn btn-success"><i class="fa fa-laptop""></i></button></a>                                                            
-                                            </td>                                         
-                                            <td>
-                                                <ul>
-                                                    <a href="/administrador/cursos/create">
-                                                    <button class="btn btn-info"><i class="fa fa-edit"></i></button></a>
-                                                    <a href="" data-target="#message-box-danger-1" data-toggle="modal">
-                                                    <button class="btn btn-danger" >
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </ul>
-                                            </td>
-                                            @include('Admin.Temas.delete')
-                                        </tr>
-                                    
+                                        <td class="tdShort">{{$item->IdTema}}</td>
+                                                <td>{{$item->Nombre}}</td>                                                                                                                                        
+                                                <td>                                                    
+                                                    <a href="/administrador/areas-{{$item->IdTema}}/temasNuevo">
+                                                    <button class="btn btn-link"><i class="fa fa-folder-open"></i></button></a>                                                                                                           
+                                                </td>                                                          
+                                                <td>                                                
+                                                    <a href="#">
+                                                    <button class="btn btn-success"><i class="fa fa-laptop"></i></button></a>                                                            
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <a href="/administrador/cursos/create">
+                                                        <button class="btn btn-info"><i class="fa fa-edit"></i></button></a>
+                                                        <a href="" data-target="#message-box-danger-1" data-toggle="modal">
+                                                        <button class="btn btn-danger" >
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                    </ul>
+                                                </td>                                            
+                                                @include('Admin.Temas.delete')
+                                            </tr>
+                                        @endforeach                                                                                                                
                                     </tbody>
                                 </table>
                             </div>

@@ -27,7 +27,7 @@ Route::get('/', function () {
 // Rutas de cliente
 Auth::routes();
 
-Route::get('/', 'LoginController@index');
+Route::post('/', 'LoginController@index');
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/index/cursos', 'CursosController@index')->name('cursos');
 Route::get('/index/recursos', 'RecursosController@index')->name('recursos');

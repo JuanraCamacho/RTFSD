@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Self::validarSiUsuarioActivo()){
+            return view('home');
+        } 
+        else{
+            return Redirect::to('/login2');
+        }
+    }
+
+    public function validarSiUsuarioActivo(){
+        $info;
+        if(session()->has('UserData')){
+            $info = DB::table('tblusuario')
+            ->where('Usuario',session('UserData')[0]['Usuario'])
+            ->first();
+            if($info == null){
+                return false;
+            }else{
+                return true;
+            }
+        } else{
+            return false;
+        }
     }
 }

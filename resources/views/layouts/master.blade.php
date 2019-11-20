@@ -110,9 +110,9 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                        <a href="" onclick="event.preventDefault();
+                        <a href="/" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="btn btn-success btn-lg">Si</a>
-                                                     <form id="logout-form" action="" method="POST" style="display: none;">
+                                                     <form id="logout-form" action="/" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                             <button class="btn btn-default btn-lg mb-control-close">No</button>

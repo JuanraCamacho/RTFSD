@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class IndexController extends Controller
 {
@@ -13,9 +15,30 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('index');
+        if(Self::validarSiUsuarioActivo()){
+            return view('index');
+        } 
+        else{
+            return Redirect::to('/login2');
+        }
+        
     }
 
+    public function validarSiUsuarioActivo(){
+        $info;
+        if(session()->has('UserData')){
+            $info = DB::table('tblusuario')
+            ->where('Usuario',session('UserData')[0]['Usuario'])
+            ->first();
+            if($info == null){
+                return false;
+            }else{
+                return true;
+            }
+        } else{
+            return false;
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

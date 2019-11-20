@@ -4,25 +4,31 @@
 
     <div class="row">
         <div class="col-md-12">                        
-            <form class="form-horizontal" method = "post" action=/administrador/areas/temas/agregarArea>
+        <form class="form-horizontal" method = "post" action="/administrador/areas/temas/agregarTema-{{$informacion->IdArea}}">
             @csrf
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Crear un área nueva</strong></h3>
-                </div>
+            <div class="panel panel-default">                
+                <div class="panel-heading">                                                
+                        <h2 class="panel-title"><strong>Añadir un nuevo tema a {{$informacion->Nombre}}</strong></h3>
+                    </div>
                 <div class="panel-body">                                        
                     <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Nombre del Área</label>
+                        <label class="col-md-3 col-xs-12 control-label">Nombre del Tema</label>
                         <div class="col-md-6 col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
                                 <input name="nombre" type="text" class="form-control" method = "post" />
                             </div>
                         </div>
-                    </div>                                       
+                    </div> 
+                    <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Reseña</label>
+                            <div class="col-md-6 col-xs-12">                                            
+                                <textarea name = "resenia" class="form-control" rows="5"></textarea>                                
+                            </div>
+                    </div>                                     
                 </div>
                 <div class="panel-footer">                        
-                <a href="/administrador/areas"><button type="button" class="btn btn-default"><i class="fa fa-mail-reply"></i> Volver</button></a>
+                <a href="/administrador/areas-{{$informacion->IdArea}}/temas"><button type="button" class="btn btn-default"><i class="fa fa-mail-reply"></i> Volver</button></a>
                     <button class="btn btn-primary pull-right">Guardar</button>
                 </div>
             </div>

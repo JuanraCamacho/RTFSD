@@ -36,26 +36,13 @@ class AreaController extends Controller
 
     public function delete($idArea)
     {
-        $sql = "call Delete_Area ('".$idArea."')";;
+        $sql = "call Delete_Area ('".$idArea."')";
         $areas = DB::select($sql,array(1,100));  
         if($areas != 1){
             return Redirect::to('/administrador/areas')->withErrors(['erroregistro'=> 'Error']);
         }
         return Redirect::to('/administrador/areas');      
-    }
-    // public function eliminarRol($id){
-    //     $sql = "call Catalogo_SP_Delete_Rol (
-    //         '".$id."'
-    //     )";
-    //     $datos = DB::select($sql, array(1,10));
-    //     if($datos == null){
-    //         return Redirect::to('/administrador/roles')->withErrors(['errors'=> 'Error']);
-    //     }
-    //     else{
-    //         return Redirect::to('/administrador/roles');
-    //     }
-    // }
-
+    }    
 
     public function registrarArea(Request $request)
     {

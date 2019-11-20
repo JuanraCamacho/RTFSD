@@ -60,3 +60,12 @@ Route::get('/administrador/cursos/create','Admin\CursoController@create');
 Route::post('verificar-usuario','LoginController@verificarUsuario');
 Route::post('registrar-usuario','LoginController@registrarUsuario');
 Route::get('/registrarse','LoginController@register');
+
+
+//Recursos
+Route::get('/administrador/areas/temas-{idTema}/recursos','Admin\RecursosController@index');
+Route::get('/administrador/areas/temas/recursos{idRecurso}/editar','Admin\RecursosController@edit');
+Route::post('/administrador/areas/temas/recursos/ActualizarRecurso{IdRecurso}/{idTemaR}','Admin\RecursosController@ActualizarRecurso');
+Route::get('/administrador/areas/temas{IdTema2}/recursos/create','Admin\RecursosController@create');
+Route::post('/administrador/areas/temas/recuros/create{idTema}','Admin\RecursosController@AgregarNuevoRecurso');
+Route::get('/administrador/areas/temas/recuros/delete{idrecurso}','Admin\RecursosController@DeleteRecurso');

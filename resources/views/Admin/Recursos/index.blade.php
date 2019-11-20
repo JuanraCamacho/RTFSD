@@ -11,14 +11,14 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">                                
                                 <h3 class="panel-title">RECURSOS</h3>
-                                <a href="/administrador/cursos/create"><button class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Nuevo curso</button></a>                             
+                                <a href="/administrador/areas/temas{{$IdTema2}}/recursos/create"><button class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Nuevo recurso</button></a>                             
                             </div>
                             <div class="panel-body">
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Curso</th>                                            
+                                            <th>Nombre</th>                                            
                                             <th>Recursos</th>                                            
                                             <th>Acciones</th>
                                         </tr>
@@ -26,25 +26,29 @@
                                     <tbody>
                                         
                                     
+                                        @foreach($recursos as $item)
                                         <tr>
-                                            <td class="tdShort">1</td>
-                                            <td>Abstracción</td>   
+                                            <td class="tdShort">{{$item->IdRecurso}}</td>
+                                            <td>{{$item->Nombre}}</td>   
                                             <td>                                                
                                                 <a href="#">
-                                                <button class="btn btn-success"><i class="fa fa-laptop""></i></button></a>                                                            
+                                                <button class="btn btn-success"><i class="fa fa-laptop"></i></button></a>                                                            
                                             </td>                                         
                                             <td>
                                                 <ul>
-                                                    <a href="/administrador/cursos/create">
+                                                    <a href="/administrador/areas/temas/recursos{{$item->IdRecurso}}/editar">
                                                     <button class="btn btn-info"><i class="fa fa-edit"></i></button></a>
-                                                    <a href="" data-target="#message-box-danger-1" data-toggle="modal">
-                                                    <button class="btn btn-danger" >
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
+
+                                                   
+                                                            <a href="" data-target="#message-box-danger-{{$item->IdRecurso}}" data-toggle="modal">
+                                                            <button class="btn btn-danger" >
+                                                                <i class="fa fa-trash-o"></i>
+                                                            </button>
                                                 </ul>
                                             </td>
                                             @include('Admin.Cursos.delete')
                                         </tr>
+                                        @endforeach
                                     
                                     </tbody>
                                 </table>

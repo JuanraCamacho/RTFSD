@@ -39,6 +39,7 @@
                                                 <ul>
                                                 <a href="/administrador/areas/edit-{{$item->IdArea}}">
                                                             <button class="btn btn-info"><i class="fa fa-edit"></i></button></a>
+                                                            
                                                             <a href="" data-target="#message-box-danger-{{$item->IdArea}}" data-toggle="modal">
                                                             <button class="btn btn-danger" >
                                                                 <i class="fa fa-trash-o"></i>

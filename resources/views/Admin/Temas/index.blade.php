@@ -30,7 +30,7 @@
                                         <td class="tdShort">{{$item->IdTema}}</td>
                                                 <td>{{$item->Nombre}}</td>                                                                                                                                        
                                                 <td>                                                    
-                                                    <a href="/administrador/areas-{{$item->IdTema}}/temasNuevo">
+                                                    <a href="/administrador/areas/temas-{{$item->IdTema}}/recursos">
                                                     <button class="btn btn-link"><i class="fa fa-folder-open"></i></button></a>                                                                                                           
                                                 </td>                                                          
                                                 <td>                                                
